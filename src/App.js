@@ -11,7 +11,7 @@ import './App.css';
 //Import the use state statement to declare and update values
 // import { useState } from 'react';
 //import the required header, selector, display, and react files
-import Header from './Header.js';
+import Header from './components/Header.js';
 
 //define the App function to hold all the code
 function App() {
