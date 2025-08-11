@@ -1,0 +1,39 @@
+/* This is the CourseInput.css file for CS 3744 Summer 2025 Final Project.
+
+    This file contains styling code in css for the CourseInput.js file.
+        
+    Course: CS 3744
+    Assignment: Final Project
+    Author: emilyk77 
+*/
+
+.courseInput {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* handles the input styling */
+.courseInput input {
+    text-align: right;
+    height: 30px;
+    width: 150px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    background-color: rgb(220,220,220);
+    border-color: rgb(77,77,77);
+    border-width: 2px;
+}
+
+/* handles the dropdown grade styling */
+.courseInput select {
+    height: 35.5px;
+    width: 150px;
+    margin-bottom: 5px;
+    color: black;
+    padding: 0 5px;
+    background-color: rgb(220,220,220);
+    border-color: rgb(77,77,77);
+    border-width: 2px;
+}

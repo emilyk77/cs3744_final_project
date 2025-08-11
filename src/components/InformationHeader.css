@@ -14,11 +14,11 @@ Text color: maroon */
 }
 
 .infoHeaderTitle {
-    color: white;  
+    color: rgb(77,77,77);
     margin-left: 10px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 35px;
     font-weight: bold;
     display: inline-block;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid rgb(77,77,77);
 }
