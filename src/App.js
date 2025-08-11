@@ -21,10 +21,14 @@ import InformationHeader from './components/InformationHeader.js';
 function App() {
   //Beginning of Model
   
-  const [course, setCourses] = useState([
+  const [courses, setCourses] = useState([
     { name: "", grade: "", credits: "" }
   ]);
   const [GPA, setGpa] = useState(null);
+
+  const addCourse = () => {
+    setCourses([...courses, { name: '', grade: '', credits: '' }]);
+  };
 
   //End of Model
   //Beginning of Controller
@@ -34,10 +38,7 @@ function App() {
     
   }
 
-  function addCourse(e) {
-    
-  }
-
+  
   //End of controller
   //Beginning of View
 
@@ -51,7 +52,7 @@ function App() {
           {/* the left will display all content for the GPA course/grade entry and calculation */}
           <div className="left">
 
-            <CourseInput course={course}/>
+            <CourseInput course={courses}/>
 
             {/* create an area for both buttons to go side by side */}
             <div className="buttons">
@@ -63,7 +64,27 @@ function App() {
           </div>
           {/* the right will hold all information informing the user of how to calculate their GPA */}
           <div className="right">
-            <InformationHeader text="How to Calculate Your GPA"></InformationHeader>
+            <InformationHeader text="How to Use GPAQuest to Calculate Your GPA"></InformationHeader>
+            <li>1. Enter the course name.</li>
+            <li>2. Select the grade of the course from dropdown.</li>
+            <li>3. Enter the number of course credits.</li>
+            <li>4. Click "+ Add Course" to add more courses.</li>
+            <li>5. Repeat steps 1-3 for each course added.</li>
+            <li>6. Click "Calculate GPA".</li>
+            <li>7. Observe the GPA and course credit graph to understand the weight of each course.</li>
+            <InformationHeader text="How to Calculate Your GPA Manually"></InformationHeader>
+            <li>1. List out all courses with the course name, grade, and credits.</li>
+            <li>2. Convert each grade A-F to points. Refer to the reference</li>
+              <ul>
+                <li>Reference: A = 4.0, A- = 3.7, B+ = 3.3, B = 3.0, B- = 2.7, C+ = 2.3, C = 2.0, C- = 1.7, D+ = 1.3, D = 1.0, D- = 0.7, F = 0.0</li>
+              </ul>
+            <li>3. Calculate the total points for each course by multiplying the grade (in points) by the amount of credits for that course</li>
+              <ul>
+                <li>i.e If the grade for Algebra is a B (3.0) and it is 4 credits, 3.0x4 = 12 total points</li>
+              </ul>
+            <li>4. Get the points summary by adding each course's total points together.</li>
+            <li>5. Get the total course credits by adding the each course's course credits.</li>
+            <li>6. Divide the points summary (step 4) by the total course credits (step 5).</li>
           </div>
         </div>
       </div>

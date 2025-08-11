@@ -16,7 +16,6 @@ function CourseInput({ course, onChange }) {
         <input type="text" placeholder="Course Name" value={course.name}></input>
         <select placeholder="Course Grade" value={course.grade}>
           {/* provide the options for temperature display This prohibits users from manually entering invalid grades*/}
-          <option value="A+">A+</option>
           <option value="A">A</option>
           <option value="A-">A-</option>
           <option value="B+">B+</option>
