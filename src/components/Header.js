@@ -15,7 +15,7 @@ function Header(props) {
     //define the header class with the h1 tag, allowing the user to input
     //the text
     <div className="header">
-        <h1>{props.text}</h1>
+        <h1 className="headerTitle">{props.text}</h1>
     </div>
   );
 }

@@ -12,6 +12,7 @@ import './App.css';
 // import { useState } from 'react';
 //import the required header, selector, display, and react files
 import Header from './components/Header.js';
+import InformationHeader from './components/InformationHeader.js';
 
 //define the App function to hold all the code
 function App() {
@@ -30,7 +31,21 @@ function App() {
     <div className="App">
       {/* input the desired header */}
       <Header text="GPAQuest"/>
-    </div>
+
+        {/* create the 2/3 left and 1/3 right */}
+        <div className="content">
+          {/* the left will display all content for the GPA course/grade entry and calculation */}
+          <div className="left">
+
+          </div>
+          {/* the right will hold all information informing the user of how to calculate their GPA */}
+          <div className="right">
+            <InformationHeader text="How to Calculate Your GPA"></InformationHeader>
+          </div>
+        </div>
+      </div>
+
+    
   );
 
   //End of View
