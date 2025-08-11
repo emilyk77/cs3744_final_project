@@ -14,6 +14,7 @@ import { useState } from 'react';
 import Header from './components/Header.js';
 import CalculateGPA from './components/CalculateGPA.js';
 import CourseInput from './components/CourseInput.js';
+import AddCourse from './components/AddCourse.js';
 import InformationHeader from './components/InformationHeader.js';
 
 //define the App function to hold all the code
@@ -30,7 +31,10 @@ function App() {
 
   //TODO
   function handleClick(e) {
-    //set the converted temp by calling the function defined above
+    
+  }
+
+  function addCourse(e) {
     
   }
 
@@ -49,8 +53,13 @@ function App() {
 
             <CourseInput course={course}/>
 
-            {/* input the text for the calculate button */}
-            <CalculateGPA text="Calculate GPA" onClick={handleClick}/>
+            {/* create an area for both buttons to go side by side */}
+            <div className="buttons">
+              {/* input the text for the calculate button */}
+              <AddCourse text="+ Add Course" onClick={addCourse}/>
+              {/* input the text for the calculate button */}
+              <CalculateGPA text="Calculate GPA" onClick={handleClick}/>
+            </div>
           </div>
           {/* the right will hold all information informing the user of how to calculate their GPA */}
           <div className="right">

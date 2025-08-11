@@ -33,3 +33,8 @@ body {
 .App .content .right {
   flex: 1;
 }
+
+.App .content .left .buttons {
+  display: flex;
+  justify-content: center;
+}
