@@ -24,6 +24,7 @@ function App() {
   const [courses, setCourses] = useState([
     { name: "", grade: "", credits: "" }
   ]);
+
   const [GPA, setGpa] = useState(null);
 
   const addCourse = () => {
@@ -33,9 +34,13 @@ function App() {
   //End of Model
   //Beginning of Controller
 
+  function calculation() {
+
+  }
+
   //TODO
   function handleClick(e) {
-    
+    setGpa(courses);
   }
 
   
@@ -52,7 +57,19 @@ function App() {
           {/* the left will display all content for the GPA course/grade entry and calculation */}
           <div className="left">
 
-            <CourseInput course={courses}/>
+            <CourseInput course={courses} setCourses={setCourses}/>
+            {courses.map((course, i) => (
+              <CourseInput key={i} course={course} onChange={(type, info) => {
+                  const updated = [...courses];
+                  updated[i] = { ...updated[i], [type]: info };
+                  setCourses(updated);
+                }}
+                onRemove={() => {
+                  const updated = [...courses.slice(0, i), ...courses.slice(i + 1)];
+                  setCourses(updated);
+                }}
+              />
+            ))}
 
             {/* create an area for both buttons to go side by side */}
             <div className="buttons">

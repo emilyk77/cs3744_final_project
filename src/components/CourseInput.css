@@ -37,3 +37,22 @@
     border-color: rgb(77,77,77);
     border-width: 2px;
 }
+
+.courseInput button {
+    background-color: rgb(77,77,77);
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+    font-size: 12px;
+    height: 34px;
+    width: 80px;
+    border-width: 2px;
+    border-radius: 2px;
+}
+
+/* creates a hover for the button, so when it is hovered over the text turns black*/
+.courseInput button:hover {
+    background-color: rgb(77,77,77);
+    color: black;
+    transition: color 0.2s ease;
+}

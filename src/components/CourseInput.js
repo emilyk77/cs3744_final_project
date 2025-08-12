@@ -9,12 +9,12 @@
 //import the css styling file
 import './CourseInput.css';
 
-function CourseInput({ course, onChange }) {
+function CourseInput({ course, onChange, onRemove }) {
   return (
     <div className="courseInput">
         {/* define the input type as text to set the original temp */}
-        <input type="text" placeholder="Course Name" value={course.name}></input>
-        <select placeholder="Course Grade" value={course.grade}>
+        <input type="text" placeholder="Course Name" onChange={(e) => onChange('name', e.target.value)} value={course.name}></input>
+        <select placeholder="Course Grade" onChange={(e) => onChange('grade', e.target.value)} value={course.grade}>
           {/* provide the options for temperature display This prohibits users from manually entering invalid grades*/}
           <option value="A">A</option>
           <option value="A-">A-</option>
@@ -30,7 +30,8 @@ function CourseInput({ course, onChange }) {
           <option value="F">F</option>
         </select>
         {/* define the input type as number to set the amount of credits */}
-        <input type="number" placeholder="Course Credits" value={course.credits}></input>
+        <input type="number" placeholder="Course Credits" onChange={(e) => onChange('credits', e.target.value)} value={course.credits}></input>
+        <button type="button" onClick={onRemove}>Remove Course</button>
     </div>
   )
 };
