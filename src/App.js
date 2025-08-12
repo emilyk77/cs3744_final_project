@@ -27,22 +27,53 @@ function App() {
 
   const [GPA, setGpa] = useState(null);
 
+  const points = { A: 4.0, Aminus: 3.7, Bplus: 3.3, B: 3.0, Bminus: 2.7, Cplus: 2.3, C: 2.0, Cminus: 1.7, Dplus: 1.3, 
+    D: 1.0, Dminus: 0.7, F: 0.0 };
+
   const addCourse = () => {
     setCourses([...courses, { name: '', grade: '', credits: '' }]);
   };
 
+
+
   //End of Model
   //Beginning of Controller
 
+  //this function will handle the actual GPA calculation by getting the total number of credits,
+  //getting the points for each course, then dividing the sum of the points by the total number
+  //of credits
   function calculation() {
+    //step 1: get the total number of credits in the course
+    let totalCredits = 0;
+    for (let i = 0; i < courses.length; i++){
+      //summarize the total credits of the course load by adding credits of all classes
+      totalCredits += courses[i].credits;
+      console.log("testing");
+    }
 
+    console.log(totalCredits);
+
+    //step 2: get the total points for each course and summarize
+    let totalPoints = 0;
+    for (let x = 0; x < courses.length; x++) {
+      //get the points equivalent of the course grade
+      let pointsEquivalent = points[courses[x].grade];
+      //calculate grade * credits to get the points of the course
+      let coursePoints = pointsEquivalent * courses[x].credits;
+      //summarize the total points
+      totalPoints += coursePoints;
+    }
+
+    //step 3: divide points by credits to get GPA
+    let calculatedGPA = (totalPoints / totalCredits);
+    return calculatedGPA;
   }
 
   //TODO
   function handleClick(e) {
-    setGpa(courses);
+    const calculatedGPA = calculation();
+    setGpa(calculatedGPA.toFixed(2));
   }
-
   
   //End of controller
   //Beginning of View
@@ -56,8 +87,6 @@ function App() {
         <div className="content">
           {/* the left will display all content for the GPA course/grade entry and calculation */}
           <div className="left">
-
-            <CourseInput course={courses} setCourses={setCourses}/>
             {courses.map((course, i) => (
               <CourseInput key={i} course={course} onChange={(type, info) => {
                   const updated = [...courses];
@@ -77,6 +106,7 @@ function App() {
               <AddCourse text="+ Add Course" onClick={addCourse}/>
               {/* input the text for the calculate button */}
               <CalculateGPA text="Calculate GPA" onClick={handleClick}/>
+              <div>GPA: {GPA}</div>
             </div>
           </div>
           {/* the right will hold all information informing the user of how to calculate their GPA */}
