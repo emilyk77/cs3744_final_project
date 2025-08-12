@@ -27,8 +27,8 @@ function App() {
 
   const [GPA, setGpa] = useState(null);
 
-  const points = { A: 4.0, Aminus: 3.7, Bplus: 3.3, B: 3.0, Bminus: 2.7, Cplus: 2.3, C: 2.0, Cminus: 1.7, Dplus: 1.3, 
-    D: 1.0, Dminus: 0.7, F: 0.0 };
+  const points = { A: 4.0, "A-": 3.7, "B+": 3.3, "B": 3.0, "B-": 2.7, "C+": 2.3, "C": 2.0, "C-": 1.7, "D+": 1.3, 
+    "D": 1.0, "D-": 0.7, "F": 0.0 };
 
   const addCourse = () => {
     setCourses([...courses, { name: '', grade: '', credits: '' }]);
@@ -47,26 +47,36 @@ function App() {
     let totalCredits = 0;
     for (let i = 0; i < courses.length; i++){
       //summarize the total credits of the course load by adding credits of all classes
-      totalCredits += courses[i].credits;
-      console.log("testing");
+      let credit = parseFloat(courses[i].credits);
+      if(!isNaN(credit)) {
+        totalCredits += credit;
+      }
     }
-
-    console.log(totalCredits);
 
     //step 2: get the total points for each course and summarize
     let totalPoints = 0;
     for (let x = 0; x < courses.length; x++) {
       //get the points equivalent of the course grade
       let pointsEquivalent = points[courses[x].grade];
-      //calculate grade * credits to get the points of the course
-      let coursePoints = pointsEquivalent * courses[x].credits;
-      //summarize the total points
-      totalPoints += coursePoints;
+      console.log(pointsEquivalent);
+      if(pointsEquivalent !== undefined) {
+        //calculate grade * credits to get the points of the course
+        let coursePoints = pointsEquivalent * parseFloat(courses[x].credits);
+        //summarize the total points
+        totalPoints += coursePoints;
+      }
     }
 
-    //step 3: divide points by credits to get GPA
-    let calculatedGPA = (totalPoints / totalCredits);
-    return calculatedGPA;
+    console.log(totalPoints);
+
+    if(totalCredits !== 0) {
+      //step 3: divide points by credits to get GPA
+      let calculatedGPA = (totalPoints / totalCredits);
+      return calculatedGPA;
+    }
+    else {
+      return 0;
+    }
   }
 
   //TODO
