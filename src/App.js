@@ -20,7 +20,7 @@ import InformationHeader from './components/InformationHeader.js';
 import GPADisplay from './components/GPADisplay.js';
 import ChartTitle from './components/ChartTitle.js';
 //Import the use effect/state/ref statements to declare and update values/charts
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 //import various chart elements to create the pie chart
 import { Chart, ArcElement, PieController, Legend } from 'chart.js';
 Chart.register(ArcElement, PieController, Legend);
@@ -50,45 +50,6 @@ function App() {
   //constants to assist in displaying the pie chart
   const creditDistribution = useRef(null);
   const creditDistributionCanvas = useRef(null);
-
-  //use effect is used to update the pie chart upon updates (change, add, or remove) of any credits
-  useEffect(() =>{
-    //if there is a current pie chart for credit distribution, destroy it to allow for creation of a new one.
-    //an error occured if the existing pie chart was not deleted before the creation of a new one
-    if(creditDistribution.current) {
-      creditDistribution.current.destroy();
-    }
-
-    //if there are any credits present in courses, then we can create a pie chart. Otherwise if no course has any credits,
-    //a pie chart should not be created as there are no credits being distributed
-    if(courses.some(course => parseFloat(course.credits) > 0) === true) {
-      const pieChart = creditDistributionCanvas.current.getContext('2d');
-      //create the credit distribution chart 
-      creditDistribution.current = new Chart(pieChart, {
-        //set the chart type to pie
-        type: "pie",
-        data: {
-          //create a label for the data and if no name is present, showcase that the name is msising
-          labels: courses.map(course => course.name || "Course Name Missing"),
-          datasets: [{
-            //create the data by parsing through each course's credits
-            data: courses.map(course => parseFloat(course.credits) || 0),
-            //set the order in which the colors should display. Otherwise, they are all the same color
-            backgroundColor: ["blue", "pink", "purple", "green", "yellow", "orange", "red", "grey"]
-          }]
-        },
-        //in options, we can display the plug ins and legends to create a more readable, accessible experience
-        options: {
-          plugins: {
-            //display the legend so users can see which course is which color
-            legend: {
-              display: true
-            }
-          }
-        },
-      });
-    }
-  }, [courses]);
 
   //End of Model
   //Beginning of Controller
@@ -132,14 +93,53 @@ function App() {
     }
 
     //step 3: divide points by credits to get GPA
+    //if there are credits, calculate the GPA
     if(totalCredits !== 0) {
       //get the calculated GPA
       let calculatedGPA = (totalPoints / totalCredits);
       return calculatedGPA;
     }
-    //if total credits is not 0, then return -1 to indicate an error
     else {
       return -1;
+    }
+  }
+
+  //function to create the pie chart so that it can be called upon, not updated on every change
+  function pieChart() {
+    //if there is a current pie chart for credit distribution, destroy it to allow for creation of a new one.
+    //an error occured if the existing pie chart was not deleted before the creation of a new one
+    if(creditDistribution.current) {
+      creditDistribution.current.destroy();
+    }
+
+    //if there are any credits present in courses, then we can create a pie chart. Otherwise if no course has any credits,
+    //a pie chart should not be created as there are no credits being distributed
+    if(courses.some(course => parseFloat(course.credits) > 0) === true) {
+      const pieChart = creditDistributionCanvas.current.getContext('2d');
+      //create the credit distribution chart 
+      creditDistribution.current = new Chart(pieChart, {
+        //set the chart type to pie
+        type: "pie",
+        data: {
+          //create a label for the data and if no name is present, showcase that the name is msising
+          labels: courses.map(course => course.name || "Course Name Missing"),
+          datasets: [{
+            //create the data by parsing through each course's credits
+            data: courses.map(course => parseFloat(course.credits) || 0),
+            //set the order in which the colors should display. Otherwise, they are all the same color
+            backgroundColor: ["blue", "pink", "purple", "green", "yellow", "orange", "red", "grey"]
+          }]
+        },
+        //in options, we can display the plug ins and legends to create a more readable, accessible experience
+        options: {
+          plugins: {
+            //display the legend so users can see which course is which color
+            legend: {
+              display: true
+            }
+          }
+        },
+      });
     }
   }
 
@@ -147,6 +147,8 @@ function App() {
   function handleClickGPACalc(e) {
     //call the calculation function
     const calculatedGPA = calculation();
+    //call the function to calculate the pie chart
+    pieChart();
     //if it returns -1 (<0) there was an error so display a message to indicate error to assist user in correcting the error
     if (calculatedGPA < 0) {
       setGpa("Invalid input. Please verify all course grades and credits are input correctly");
