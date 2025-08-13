@@ -15,7 +15,8 @@ function GPADisplay({text, gpa}) {
     //define the header class with the h1 tag, allowing the user to input
     //the text
     <div className="display">
-        <h1 className="displayTitle">{text} {gpa}</h1>
+        <h1 className="displayTitle">{text} </h1>
+        <h2 className="gpa">{gpa}</h2>
     </div>
   );
 }
