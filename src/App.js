@@ -170,17 +170,22 @@ function App() {
           <div className="left">
             {courses.map((course, i) => (
               <CourseInput key={i} course={course} onChange={(type, info) => {
+                  //get the courses that currently exist
                   const updated = [...courses];
+                  //update the course at index i
                   updated[i] = { ...updated[i], [type]: info };
+                  //set the courses with the updated courses
                   setCourses(updated);
                 }}
+                //removal:
                 onRemove={() => {
+                  //update the courses by splicing from the start index 0, to removal index, to the end of the couses
                   const updated = [...courses.slice(0, i), ...courses.slice(i + 1)];
+                  //set the courses with the updated courses
                   setCourses(updated);
                 }}
               />
             ))}
-
             {/* create an area for both buttons to go side by side */}
             <div className="buttons">
               {/* input the text for the calculate button */}
