@@ -61,10 +61,3 @@ body {
   font-size: 20px;
   display: inline-block;
 }
-
-/* canvas styling for the pie chart */
-.App .content .left canvas {
-  display: block;
-  width: 100px;
-  height: 100px;
-}

@@ -13,12 +13,12 @@
 import './App.css';
 //import the support js files for the application
 import Header from './components/Header.js';
-import CalculateGPA from './components/CalculateGPA.js';
-import CourseInput from './components/CourseInput.js';
-import AddCourse from './components/AddCourse.js';
-import InformationHeader from './components/InformationHeader.js';
-import GPADisplay from './components/GPADisplay.js';
-import ChartTitle from './components/ChartTitle.js';
+import CalculateGPA from './components/GPA&Courses/CalculateGPA.js';
+import CourseInput from './components/GPA&Courses/CourseInput.js';
+import AddCourse from './components/GPA&Courses/AddCourse.js';
+import InformationHeader from './components/Information/InformationHeader.js';
+import GPADisplay from './components/GPA&Courses/GPADisplay.js';
+import ChartTitle from './components/Visualization/ChartTitle.js';
 //Import the use effect/state/ref statements to declare and update values/charts
 import { useState, useRef } from 'react';
 //import various chart elements to create the pie chart
