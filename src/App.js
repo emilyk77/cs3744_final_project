@@ -16,6 +16,7 @@ import CalculateGPA from './components/CalculateGPA.js';
 import CourseInput from './components/CourseInput.js';
 import AddCourse from './components/AddCourse.js';
 import InformationHeader from './components/InformationHeader.js';
+import GPADisplay from './components/GPADisplay.js';
 
 //define the App function to hold all the code
 function App() {
@@ -51,6 +52,9 @@ function App() {
       if(!isNaN(credit)) {
         totalCredits += credit;
       }
+      else {
+        return -1;
+      }
     }
 
     //step 2: get the total points for each course and summarize
@@ -58,31 +62,36 @@ function App() {
     for (let x = 0; x < courses.length; x++) {
       //get the points equivalent of the course grade
       let pointsEquivalent = points[courses[x].grade];
-      console.log(pointsEquivalent);
+
       if(pointsEquivalent !== undefined) {
         //calculate grade * credits to get the points of the course
         let coursePoints = pointsEquivalent * parseFloat(courses[x].credits);
         //summarize the total points
         totalPoints += coursePoints;
       }
+      else {
+        return -1;
+      }
     }
 
-    console.log(totalPoints);
-
+    //step 3: divide points by credits to get GPA
     if(totalCredits !== 0) {
-      //step 3: divide points by credits to get GPA
       let calculatedGPA = (totalPoints / totalCredits);
       return calculatedGPA;
     }
     else {
-      return 0;
+      return -1;
     }
   }
 
-  //TODO
   function handleClick(e) {
     const calculatedGPA = calculation();
-    setGpa(calculatedGPA.toFixed(2));
+    if (calculatedGPA < 0) {
+      setGpa("Invalid input. Please verify all course grades and credits are input correctly");
+    }
+    else {
+      setGpa(calculatedGPA.toFixed(2));
+    }
   }
   
   //End of controller
@@ -116,8 +125,8 @@ function App() {
               <AddCourse text="+ Add Course" onClick={addCourse}/>
               {/* input the text for the calculate button */}
               <CalculateGPA text="Calculate GPA" onClick={handleClick}/>
-              <div>GPA: {GPA}</div>
             </div>
+            <GPADisplay text="Your GPA:" gpa={GPA}/>
           </div>
           {/* the right will hold all information informing the user of how to calculate their GPA */}
           <div className="right">
@@ -145,8 +154,6 @@ function App() {
           </div>
         </div>
       </div>
-
-    
   );
 
   //End of View

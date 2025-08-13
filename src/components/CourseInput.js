@@ -16,6 +16,7 @@ function CourseInput({ course, onChange, onRemove }) {
         <input type="text" placeholder="Course Name" onChange={(e) => onChange('name', e.target.value)} value={course.name}></input>
         <select placeholder="Course Grade" onChange={(e) => onChange('grade', e.target.value)} value={course.grade}>
           {/* provide the options for temperature display This prohibits users from manually entering invalid grades*/}
+          <option value="selection">Select Grade</option>
           <option value="A">A</option>
           <option value="A-">A-</option>
           <option value="B+">B+</option>
