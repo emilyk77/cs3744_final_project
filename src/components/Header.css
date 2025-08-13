@@ -1,18 +1,17 @@
  /* This is the Header.css file for CS 3744 Final Project - Summer 2025.
 
-      Header.css holds the logic for the header of the website
+    Header.css holds the logic for the header of the website.
 
-      Course: CS 3744
-      Assignment: Final Project
-      Author: emilyk77 */
+    Course: CS 3744
+    Assignment: Final Project
+    Author: emilyk77 */
 
-/* handles the hw styling
-Text color: maroon */
-
+/* general styling */
 .header {
     text-align: center;
 }
 
+/* styling for the title */
 .headerTitle {
     color: rgb(77,77,77);  
     margin-left: 10px;

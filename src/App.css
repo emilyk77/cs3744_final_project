@@ -1,44 +1,50 @@
  /* This is the App.css file for CS 3744 Final Project - Summer 2025.
 
-      App.css holds the logic for the header of the website
+  App.css holds the styling logic for the App.js file, which follows
+  the MVC design pattern and is the primary file for the application.
 
-      Course: CS 3744
-      Assignment: Final Project
-      Author: emilyk77 */
+  Course: CS 3744
+  Assignment: Final Project
+  Author: emilyk77 */
 
-/* handles the body styling
-Background color: orange */
+/* general styling */
 body {
   height: 100%;
   background-color: rgb(212, 254, 255);
 }
 
+/* general styling */
 .App{
   height: 155vh;
   display: flex;
   flex-direction: column;
 }
 
+/* general styling */
 .App .content{
   display: flex;
   flex: 1;
 }
 
+/* make the left side 2/3 portions of the application UI */
 .App .content .left {
   flex: 2;
   display: inline-block;
   border-right: 2px solid rgb(77,77,77);
 }
 
+/* make the left side 1/3 portions of the application UI */
 .App .content .right {
   flex: 1;
 }
 
+/* button styling */
 .App .content .left .buttons {
   display: flex;
   justify-content: center;
 }
 
+/* LI styling */
 .App .content .left li{
   color: rgb(77,77,77);
   margin-left: 25px;
@@ -47,10 +53,18 @@ body {
   display: inline-block;
 }
 
+/* LI styling */
 .App .content .right li{
   color: rgb(77,77,77);
   margin-left: 25px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 20px;
   display: inline-block;
+}
+
+/* canvas styling for the pie chart */
+.App .content .left canvas {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
 }

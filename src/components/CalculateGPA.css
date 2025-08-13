@@ -1,18 +1,22 @@
 /* This is the CalculateGPA.css file for CS 3744 Summer 2025 Final Project.
 
     This file contains styling code in css for the CalculateGPA.js file.
-        
+    This file aims to style the "CalculateGPA" button for the application,
+    allowing users to easily calculate their GPAs.
+
     Course: CS 3744
     Assignment: Final Project
     Author: emilyk77 
 */
 
+/* general styling */
 .calculate {
     margin-top: 10px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
 }
 
+/* style the button for calculating the gpa, staying in same style as the other buttons in application */
 .calculate input {
     background-color: rgb(77,77,77);;
     color: white;

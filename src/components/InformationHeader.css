@@ -1,18 +1,21 @@
  /* This is the InformationHeader.css file for CS 3744 Final Project - Summer 2025.
 
-      Header.css holds the logic for the header of the website's info portion
+      InformationHeader.css holds the styling logic for the header of the website's information.
+      The application provides information to the user on 1. how to run the application & 2. how
+      to calculate their GPAs by hand. The goal of this is to educate users on how to do so, 
+      enabling them to do it independently in the future in case of minimal access to assistive
+      technology.
 
       Course: CS 3744
       Assignment: Final Project
       Author: emilyk77 */
 
-/* handles the hw styling
-Text color: maroon */
-
+/* general styling */
 .infoHeader {
     text-align: center;
 }
 
+/* title styling */
 .infoHeaderTitle {
     color: rgb(77,77,77);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;

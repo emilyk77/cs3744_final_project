@@ -1,18 +1,22 @@
 /* This is the AddCourse.css file for CS 3744 Summer 2025 Final Project.
 
     This file contains styling code in css for the AddCourse.js file.
+    This file aims to style the "+ Add Course" button for the application,
+    allowing users to easily add additional courses to their GPA calculation.
         
     Course: CS 3744
     Assignment: Final Project
     Author: emilyk77 
 */
 
+/* General add course styling */
 .addCourse {
     margin-top: 10px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
 }
 
+/* styling for the input button. Ensures button follows the same style as the rest of the application */
 .addCourse input {
     background-color: rgb(77,77,77);;
     color: white;

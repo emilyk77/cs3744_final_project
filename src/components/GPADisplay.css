@@ -1,18 +1,22 @@
- /* This is the Header.css file for CS 3744 Final Project - Summer 2025.
+ /* This is the GPADisplay.css file for CS 3744 Final Project - Summer 2025.
 
-      Header.css holds the logic for the header of the website
+    GPADisplay.css holds the styling logic for displaying the GPA.
+    While the title for gpa display will follow the standard styling,
+    the GPA should be clear and bold to the user, allowing them to easily 
+    see it when their GPA has been calculated. The GPA is the most standout
+    styling element of the website, following the general styling of the 
+    application while still being the standout component.
 
-      Course: CS 3744
-      Assignment: Final Project
-      Author: emilyk77 */
+    Course: CS 3744
+    Assignment: Final Project
+    Author: emilyk77 */
 
-/* handles the hw styling
-Text color: maroon */
-
+/* general styling */
 .display {
     text-align: center;
 }
 
+/* displaying the standard title, follows the same format as the rest of the application */
 .displayTitle {
     color: rgb(77,77,77);  
     margin-left: 10px;
@@ -22,6 +26,7 @@ Text color: maroon */
     display: inline-block;
 }
 
+/* style the GPA, making it a more standout element */
 .gpa {
     color: black;  
     margin-left: 10px;

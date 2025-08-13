@@ -1,12 +1,17 @@
 /* This is the CourseInput.css file for CS 3744 Summer 2025 Final Project.
 
     This file contains styling code in css for the CourseInput.js file.
-        
+    This file aims to enhance usability in the course input, allowing 
+    users to easily enter their course information. The choosen styling methods 
+    look to make the inputs easy to understand and minimize user
+    error.
+    
     Course: CS 3744
     Assignment: Final Project
     Author: emilyk77 
 */
 
+/* general styling */
 .courseInput {
     justify-content: center;
     align-items: center;
@@ -41,6 +46,7 @@
     border-width: 2px;
 }
 
+/* handles the remove button styling */
 .courseInput button {
     background-color: rgb(77,77,77);
     color: white;

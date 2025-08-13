@@ -1,15 +1,20 @@
  /* This is the ChartTitle.css file for CS 3744 Final Project - Summer 2025.
 
-      ChartTitle.css holds the logic for the ChartTitle of the website
+    ChartTitle.css holds the logic for the ChartTitle of the website. The 
+    Chart Title displays the title of the pie chart used for the visualization
+    portion of the application. As currently implemented, the chart title will
+    display a title for a credit distribution chart.
 
-      Course: CS 3744
-      Assignment: Final Project
-      Author: emilyk77 */
+    Course: CS 3744
+    Assignment: Final Project
+    Author: emilyk77 */
 
+/* general styling */
 .chartTitle {
     text-align: center;
 }
 
+/* stylizes the title itself to match the formatting in the rest of the application */
 .chartTitleTitle {
     color: rgb(77,77,77);  
     margin-left: 10px;
