@@ -1,0 +1,20 @@
+ /* This is the ChartTitle.css file for CS 3744 Final Project - Summer 2025.
+
+      ChartTitle.css holds the logic for the ChartTitle of the website
+
+      Course: CS 3744
+      Assignment: Final Project
+      Author: emilyk77 */
+
+.chartTitle {
+    text-align: center;
+}
+
+.chartTitleTitle {
+    color: rgb(77,77,77);  
+    margin-left: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 35px;
+    font-weight: bold;
+    text-decoration: underline;
+}

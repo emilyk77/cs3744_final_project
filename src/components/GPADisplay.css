@@ -17,7 +17,7 @@ Text color: maroon */
     color: rgb(77,77,77);  
     margin-left: 10px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 30px;
+    font-size: 45px;
     font-weight: bold;
     display: inline-block;
 }
@@ -26,7 +26,7 @@ Text color: maroon */
     color: black;  
     margin-left: 10px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 40px;
+    font-size: 55px;
     text-decoration: underline;
     font-weight: bold;
     display: inline-block;

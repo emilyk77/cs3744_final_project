@@ -39,11 +39,18 @@ body {
   justify-content: center;
 }
 
+.App .content .left li{
+  color: rgb(77,77,77);
+  margin-left: 25px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 20px;
+  display: inline-block;
+}
+
 .App .content .right li{
   color: rgb(77,77,77);
   margin-left: 25px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 20px;
   display: inline-block;
-  translate: Y
 }

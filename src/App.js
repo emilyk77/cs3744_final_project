@@ -17,6 +17,7 @@ import CourseInput from './components/CourseInput.js';
 import AddCourse from './components/AddCourse.js';
 import InformationHeader from './components/InformationHeader.js';
 import GPADisplay from './components/GPADisplay.js';
+import ChartTitle from './components/ChartTitle.js';
 
 //define the App function to hold all the code
 function App() {
@@ -127,6 +128,8 @@ function App() {
               <CalculateGPA text="Calculate GPA" onClick={handleClick}/>
             </div>
             <GPADisplay text="Your GPA:" gpa={GPA}/>
+            <ChartTitle text="Course Credit Distribution"/>
+            <li>See the below Pie Chart for information about your course credit distribution. The first pie chart will not be generated until you have calculated your GPA for the first time.</li>
           </div>
           {/* the right will hold all information informing the user of how to calculate their GPA */}
           <div className="right">
