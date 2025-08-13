@@ -10,6 +10,7 @@
 import './App.css';
 //Import the use state statement to declare and update values
 import { useState } from 'react';
+import {BubbleController, Chart} from 'chart.js';
 //import the required header, selector, display, and react files
 import Header from './components/Header.js';
 import CalculateGPA from './components/CalculateGPA.js';
@@ -35,6 +36,19 @@ function App() {
   const addCourse = () => {
     setCourses([...courses, { name: '', grade: '', credits: '' }]);
   };
+
+  const creditDistribution = new Chart("pieChart", {
+    type: "pie",
+    data: {
+      labels: courses.map(course => course.name || "Course Name Missing"),
+      datasets: [{
+        labels: 'Course Credits',
+        data: courses.map(course => parseFloat(course.credits) || '-1'),
+        backgroundColor: ["blue", "pink", "purple", "green", "yellow", "orange", "red", "grey"]
+      }]
+    },
+    options: {}
+  });
 
 
 
