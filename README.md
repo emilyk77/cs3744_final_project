@@ -54,8 +54,9 @@ The application uses various technologies, denoted below:
 App.js--the main file of the program--lives within the source folder. Futher in the "src" folder is the components folder. This folder houses all major components of the application. All components are then split into various sections: GPA&Courses, Information, and Visualization. The GPA&Courses folder holds all folders that pertain to course input and GPA display. The information folder holds all files that house the information (rightmost) section of the application. The Visualization holds the visualization chart title information; the main visualization logic lives in App.js. Lastly, the main header file--that holds the application's title logic--is in the main components folder, not a subfolder.
 
 # Demo Video
-Please refer to the video titled "CS3744 Final Project Demo - Emily Knoll" in the project folder for the demonstration video, as I am not able to attach a link in the README.md.
+Please refer to the video titled "CS3744 Final Project Demo - Emily Knoll", attached below.
 
+https://github.com/user-attachments/assets/86cfb18d-0f50-42e9-9619-a8051a2675db
 
 # Future Development Roadmap
 In future development, the following features will be added to improve the application:
